@@ -1,0 +1,26 @@
+﻿@model MVCProjectApp.Models.cvinsert
+@{
+    ViewBag.Title = "ApplyCV_Load";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apply job</h2>
+<div>
+    @using (Html.BeginForm("Applyclick_Load","ApplyCV",FormMethod.Post,new { enctype = "multipart/form-data" }))
+            {
+                <div>
+                    <label>Upload Resume:</label>
+                </div>
+                <div>
+                    @Html.TextBox("file","",new { Type="file"})
+                </div>
+                <div>
+                    <input type="submit" value="Insert" />
+                    @Html.DisplayFor(m=>m.App_msg)
+                </div>
+            }
+    <div>
+        @Html.ActionLink("Back to Home Page", "Jobsearchload","searchjob")
+    </div>
+</div>
+

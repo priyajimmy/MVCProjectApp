@@ -1,0 +1,77 @@
+﻿@model MVCProjectApp.Models.UserProfilecls
+@{
+    ViewBag.Title = "Profile_Load";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Profile_Load</h2>
+<div>
+    @using (Html.BeginForm("Profile_Load", "ProfileDB", FormMethod.Get))
+    {
+        <div>
+            <label>Name:</label>
+
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.name)
+        </div>
+        <div>
+            <label>Age:</label>
+
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.age)
+        </div>
+
+        <div>
+            <label>Address:</label>
+
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.address)
+        </div>
+        <div>
+            <label>Phone:</label>
+
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.phone)
+        </div>
+        <div>
+            <label>Email:</label>
+
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.email)
+        </div>
+        <div>
+            <label>Gender:</label>
+
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.gender)
+        </div>
+        <div>
+            <label>Qualification:</label>
+
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.qualification)
+        </div>
+        <div>
+            <label>Skills:</label>
+
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.skills)
+        </div>
+        <div>
+            <input type="submit" value="update" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+        <div>
+            @Html.ActionLink("Back to Home Page", "UserHome", "UserLogin")
+        </div>
+    }
+</div>
+

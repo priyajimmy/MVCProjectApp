@@ -1,0 +1,112 @@
+﻿@model MVCProjectApp.Models.UserInsert
+@{
+    ViewBag.Title = "InsertUser_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Details</h2>
+<div>
+    @using (Html.BeginForm("InsertUser_click", "UserReg", FormMethod.Post))
+    {
+        <div>
+            <label>Name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div>
+            <label>Age:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Age)
+            @Html.ValidationMessageFor(m => m.Age)
+        </div>
+        <div>
+            <label>Address:</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.Address)
+            @Html.ValidationMessageFor(m => m.Address)
+        </div>
+        <div>
+            <label>Phone:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Phone)
+            @Html.ValidationMessageFor(m => m.Phone)
+        </div>
+        <div>
+            <label>Email:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div>
+            <label>Gender:</label>
+        </div>
+
+        @*@Html.(m => m.Gender);
+            @Html.ValidationMessageFor(m => m.Gender)*@
+        <div class="col-md-10">
+            Male
+            @Html.RadioButtonFor(model => model.Gender, "Male")
+            Female
+            @Html.RadioButtonFor(model => model.Gender, "Female")
+
+        </div>
+        
+        <div>
+            <label>Qualification:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Qualification);
+            @Html.ValidationMessageFor(m => m.Qualification)
+        </div>
+
+        <div>
+            <label>Experience:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Experience)
+            @Html.ValidationMessageFor(m => m.Experience)
+        </div>
+        <div>
+            <label>Skills:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Skills)
+            @Html.ValidationMessageFor(m => m.Skills)
+        </div>
+        <div>
+            <label>Username:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.username)
+            @Html.ValidationMessageFor(m => m.username)
+        </div>
+
+        <div>
+            <label>Password:</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.pass)
+            @Html.ValidationMessageFor(m => m.pass)
+        </div>
+
+        <div>
+            <label>confirm Password:</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.cpassword)
+            @Html.ValidationMessageFor(m => m.cpassword)
+        </div>
+        <div>
+            <input type="submit" value="insert" />
+            @Html.DisplayFor(m => m.usermsg)
+        </div>
+    }
+
+</div>
+

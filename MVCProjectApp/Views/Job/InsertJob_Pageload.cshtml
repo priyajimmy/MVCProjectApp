@@ -1,0 +1,40 @@
+﻿@model MVCProjectApp.Models.jobs
+@{
+    ViewBag.Title = "InsertJob_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>InsertJob_Pageload</h2>
+<div>
+    @using (Html.BeginForm("InsertJob_click", "job", FormMethod.Post))
+    {
+        <div>
+            <label>Job Title:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Job_Title)
+            @Html.ValidationMessageFor(m =>m.Job_Title)
+        </div>
+        <div>
+            <label>Required skills:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Skills)
+            @Html.ValidationMessageFor(m => m.Skills)
+        </div>
+        <div>
+            <label>Experience Required:</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.Experience)
+            @Html.ValidationMessageFor(m => m.Experience)
+        </div>
+
+        <div>
+            <input type="submit" value="insert" />
+            @Html.DisplayFor(m => m.jobmsg)
+        </div>
+    }
+
+</div>
+

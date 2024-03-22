@@ -1,0 +1,101 @@
+﻿@model MVCProjectApp.Models.Jobsearch
+@{
+    ViewBag.Title = "Jobsearchload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Jobsearch</h2>
+<div>
+    @using (Html.BeginForm("Searchjob_click", "searchjob", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td style="padding-left:8px;"><label>Skills:</label> </td>
+                <td>@Html.TextBoxFor(m => m.searchobj.Skills)</td>
+                <td style="padding-left:8px;"><label>Experience:</label></td>
+                <td>@Html.TextBoxFor(m => m.searchobj.Experience)</td>
+                <td><input type="submit" value="Search" /></td>
+            </tr>
+        </table>
+    }
+</div>
+<div>
+    @using (Html.BeginForm("Jobsearchload", "searchjob", FormMethod.Get))
+    {
+        if (Model != null)
+        {
+
+            if (Model.selectobj != null && Model.selectobj.Count != 0)
+            {
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.searchobj.Job_Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.searchobj.Comp_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.searchobj.Job_Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.searchobj.Skills)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.searchobj.Experience)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.searchobj.Job_Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.searchobj.Last_Date)
+                </th>
+            </tr>
+            @foreach (var item in Model.selectobj)
+                {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comp_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Experience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job_Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Date)
+            </td>
+            <td>
+                @using (Html.BeginForm("ApplyCV_Load", "ApplyCV",
+                                new { cid = item.Comp_id, jid = item.Job_Id }, FormMethod.Post))
+                {
+                                <button class="btn btn-danger btn-xs" type="submit">Apply Now</button>
+                }
+            </td>
+        </tr>
+            }
+            
+        </table>
+            }
+            else
+            {
+                        <script>
+                            alert("no data found");
+                        </script>
+            }
+        }
+    }
+    </div>
+
